@@ -128,16 +128,26 @@ const showIssues = (issues) => {
 
 // function for search 
 const searchIssues = () => {
-    // Get the input
-    const searchText = document.getElementById('search-input').value.toLowerCase();
-    // Filter the issues
-    const filterIssues = allIssues.filter(issue => 
-        issue.title.toLowerCase().includes(searchText) ||
-        issue.description.toLowerCase().includes(searchText)
-    );
+    // get the input and the value
+    const searchText = document
+        .getElementById('search-input')
+        .value
+        .trim();
 
-    showIssues(filterIssues);
-}
+        // Fetch the search api
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
+        .then(res => res.json())
+        .then(data => {
+
+            // Conditional statements for search 
+            if (searchText === "") {
+                loadIssues();
+                return;
+            }
+
+            showIssues(data.data);
+        });
+};
 // Function for loader
 function showLoader(state){
     // Get the loader
