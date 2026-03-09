@@ -1,6 +1,8 @@
 let allIssues = [];
 
 const loadIssues = () => {
+
+    showLoader(true); // Show loader while loading
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues`;
 
     fetch(url)
@@ -9,6 +11,7 @@ const loadIssues = () => {
         // console.log(json.data);
         allIssues = json.data;
         showIssues(allIssues);
+        showLoader(false); // Hide loader after load data
     });
 }
 
@@ -121,6 +124,18 @@ const showIssues = (issues) => {
         // 4. Append the child
         issueContainer.append(card);
     });
+}
+
+function showLoader(state){
+    // Get the loader
+    const loader=document.getElementById("loader")
+
+    if(state){
+        loader.classList.remove("hidden")
+    }
+    else{
+    loader.classList.add("hidden")
+    }
 }
 
 loadIssues();
