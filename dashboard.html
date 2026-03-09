@@ -39,7 +39,7 @@
 
   <body class="bg-[#f8fafc]">
     <!-- Navbar -->
-    <nav class="navbar w-max-[1600px] px-[80px] py-[16px] bg-white shadow-sm">
+    <nav class="navbar flex flex-col min-[750px]:flex-row gap-4 min-[750px]:gap-0 max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-[80px] py-[16px] bg-white shadow-sm">
       <div class="flex-1 flex items-center gap-2 hover:cursor-pointer">
         <a href="#">
           <img class="h-[36px]" src="assets/github-logo.png" alt="" />
@@ -72,14 +72,14 @@
       </div>
     </nav>
 
-    <div class="content px-[14%]">
+    <div class="content px-4 sm:px-10 lg:px-[14%]">
 
       <!-- Tabs -->
-    <div class="bg-white flex gap-3 py-6 px-6 mt-[60px] shadow-xs rounded-[8px]">
+    <div class="bg-white flex flex-wrap gap-3 py-6 px-6 mt-[60px] shadow-xs rounded-[8px]">
       <button onclick="changeTab('all')"
         id="tab-all"
         onclick="changeTab('all')"
-        class="tab-btn btn btn-primary w-[120px]"
+        class="tab-btn btn btn-primary w-full sm:w-[120px]"
       >
         All
       </button>
@@ -87,7 +87,7 @@
       <button onclick="changeTab('open')"
         id="tab-open"
         onclick="changeTab('open')"
-        class="tab-btn tab-btn btn btn-natural w-[120px]"
+        class="tab-btn tab-btn btn btn-natural w-full sm:w-[120px]"
       >
         Open
       </button>
@@ -95,7 +95,7 @@
       <button onclick="changeTab('closed')"
         id="tab-closed"
         onclick="changeTab('closed')"
-        class="tab-btn tab-btn btn btn-natural w-[120px]"
+        class="tab-btn tab-btn btn btn-natural w-full sm:w-[120px]"
       >
         Closed
       </button>
@@ -104,8 +104,8 @@
     <div class="issue-content bg-white mt-4 rounded-[8px]">
 
       <!-- header -->
-       <div class="issue-header p-6 flex justify-between items-center border-b-[1px] border-gray-400">
-        <div class="right flex gap-2">
+       <div class="issue-header p-6 flex flex-col sm:flex-row sm:justify-between gap-4 items-center border-b-[1px] border-gray-400">
+        <div class="right flex gap-2 items-center">
           <img class="h-[50px] w-auto" src="assets/Aperture.png" alt="">
           <div class="flex flex-col">
             <h2 id="issue-count" class="text-xl font-bold">50 Issues</h2>
@@ -138,7 +138,7 @@
     </div>
 
     <!-- Issue cards container -->
-    <section id="issue-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6 bg-white">
+    <section id="issue-container" class="grid grid-cols-1 sm:grid-cols-2 min-[1150px]:grid-cols-4 gap-4 p-4 sm:p-6 bg-white">
 
        </section>
 
