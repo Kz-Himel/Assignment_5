@@ -38,22 +38,37 @@ const showIssues = (issues) => {
 
         // Innerhtml of the issue cards
         card.innerHTML = `
-            <h2 class="text-lg font-bold">${issue.title}</h2>
+                <div class="upper flex flex-col gap-3 p-4">
+          <div class="flex justify-between">
+        <img class="h-[24px] w-auto" src="assets/Open-Status.png" alt="">
+        <p class="bg-red-200 font-bold uppercase px-5 py-1 text-red-500 rounded-[18px]">${issue.priority}</p>
+      </div>
+
+      <div class="">
+        <h2 class="text-lg font-bold">${issue.title}</h2>
 
             <p class="text-sm text-gray-600 mt-2">
                 ${issue.description}
             </p>
 
-            <div class="mt-3 text-sm">
-                <p><b>Status:</b> ${issue.status}</p>
-                <p><b>Author:</b> ${issue.author}</p>
-                <p><b>Priority:</b> ${issue.priority}</p>
-                <p><b>Label:</b> ${issue.label}</p>
+            <div class="mt-3 text-sm flex gap-2 items-center">
+                <p class="bg-red-100 font-bold uppercase px-3 py-1 text-red-500 rounded-[18px] border border-red-500">
+                  <i class="ri-bug-line"></i>
+                  BUG</p>
+                <p class="bg-orange-100 font-bold uppercase px-3 py-1 text-orange-500 rounded-[18px] border border-orange-500">
+                  <i class="ri-donut-chart-line"></i>
+                  Help Wanted</p>
             </div>
+      </div>
 
-            <p class="text-xs text-gray-400 mt-3">
-                ${issue.createdAt}
-            </p>
+        </div>
+
+        <hr class="text-gray-400">
+        
+        <div class="lower p-4 space-y-2">
+              <p class="text-gray-500">${issue.author}</p>
+              <p class="text-gray-500">${issue.createdAt}</p>
+            </div>
         `
 
         // 4. Append the child
