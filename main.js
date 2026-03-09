@@ -1,5 +1,7 @@
+// Create array for filter search
 let allIssues = [];
 
+// Load the API
 const loadIssues = () => {
 
     showLoader(true); // Show loader while loading
@@ -121,6 +123,9 @@ const showIssues = (issues) => {
             </div>
         `
 
+        // card click event for open modal
+        card.onclick = () => openModal(issue.id);
+
         // 4. Append the child
         issueContainer.append(card);
     });
@@ -148,6 +153,7 @@ const searchIssues = () => {
             showIssues(data.data);
         });
 };
+
 // Function for loader
 function showLoader(state){
     // Get the loader
@@ -161,4 +167,80 @@ function showLoader(state){
     }
 }
 
+// Open Modal function
+const openModal = (id) => {
+
+fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+.then(res => res.json())
+.then(data => {
+
+const issue = data.data;
+
+const modalContent = document.getElementById("modal-content");
+
+// For priority color
+let priorityColor = "";
+if(issue.priority === "high"){
+priorityColor = "bg-red-200 text-red-500";
+}
+else if(issue.priority === "medium"){
+priorityColor = "bg-yellow-100 text-yellow-500";
+}
+else{
+priorityColor = "bg-gray-200 text-gray-500";
+}
+
+// Condition for satus
+let statusColor = "";
+if(issue.status === "open"){
+statusColor = "bg-green-200 text-green-500 border border-green-500 rounded-[18px] px-2 py-1";
+}
+else{
+statusColor = "bg-purple-200 text-purple-500 border border-purple-500 rounded-[18px] px-2 py-1";
+}
+
+modalContent.innerHTML = `
+
+<h2 class="text-2xl font-bold">${issue.title}</h2>
+
+<div class="flex items-center gap-2 text-sm mt-2">
+<p class="${statusColor}">${issue.status}</p>
+<p class="text-gray-500">Opened by:</p>
+<p class="text-gray-500">${issue.author}</p>
+<p class="text-gray-500">${issue.updatedAt}</p>
+</div>
+
+<p class="text-gray-500 text-xl mt-4">${issue.description}</p>
+
+<div class="flex bg-gray-100 p-4 rounded-[10px]">
+
+<div class="flex-1">
+<p class="text-[18px] text-gray-500">Assignee:</p>
+<p class="font-semibold text-xl">${issue.assignee}</p>
+</div>
+
+<div class="flex-1 flex flex-col gap-2 items-start">
+<p class="text-[18px] text-gray-500">Priority</p>
+<p class="${priorityColor} font-bold uppercase px-4 py-1 rounded-[18px]">
+${issue.priority}
+</p>
+</div>
+
+</div>
+
+<div class="modal-action">
+<form method="dialog">
+<button class="btn btn-primary">Close</button>
+</form>
+</div>
+
+`;
+
+document.getElementById("issue_modal").showModal();
+
+});
+
+}
+
+// Call the main function
 loadIssues();

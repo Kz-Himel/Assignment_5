@@ -75,7 +75,6 @@
     <div class="content px-[14%]">
 
       <!-- Tabs -->
-
     <div class="bg-white flex gap-3 py-6 px-6 mt-[60px] shadow-xs rounded-[8px]">
       <button onclick="changeTab('all')"
         id="tab-all"
@@ -132,7 +131,6 @@
     <hr class="text-gray-500 text-[1px]">
 
     <!-- Loader -->
-
     <div id="loader"
       class="hidden text-center font-semibold">
     <span class="loading loading-infinity loading-xl"></span>
@@ -145,16 +143,10 @@
        </section>
 
        <!-- Open the modal using ID.showModal() method -->
-       <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <h1></h1>
-    <div>
-      <p class=""></p>
-
-    </div>
-  </div>
-</dialog>
-
+       <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
+        <div id="modal-content" class="flex flex-col modal-box p-6 gap-[14px] max-w-[636px]">
+        </div>
+      </dialog>
 
     </div>
     <script src="main.js"></script>
