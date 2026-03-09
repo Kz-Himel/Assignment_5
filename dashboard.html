@@ -1,59 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<!-- Tailwind CSS + DaisyUi Link -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tailwind CSS + DaisyUi Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Remix Icon Link -->
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
-     <!-- Google Font Link -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Style Sheet Link -->
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
-     <!-- Top Icon Link -->
-      <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+    <!-- Top Icon Link -->
+    <link
+      rel="shortcut icon"
+      href="assets/github-logo.png"
+      type="image/x-icon"
+    />
 
     <title>Github Issue Tracker | Dashboard</title>
-</head>
+  </head>
 
-<body class="bg-gray-100">
-
+  <body class="bg-[#f8fafc]">
     <!-- Navbar -->
-    <nav class="navbar w-max-[1600px] px-[80px] py-[16px] bg-base-100 shadow-sm">
-  <div class="flex-1 flex items-center gap-2 hover:cursor-pointer">
-    <a href="#">
-        <img class="h-[36px]" src="assets/github-logo.png" alt="">
-    </a>
-    <a href="#" class="font-bold text-2xl">GitHub Issues Tracker</a>
-  </div>
-  <div class="flex gap-2">
-    <label class="input">
-  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <g
-      stroke-linejoin="round"
-      stroke-linecap="round"
-      stroke-width="2.5"
-      fill="none"
-      stroke="currentColor"
-    >
-      <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.3-4.3"></path>
-    </g>
-  </svg>
-  <input type="search" class="grow" placeholder="Search issues..." />
-</label>
-    <button class="btn btn-primary"><i class="ri-add-line"></i>New Issue</button>
-  </div>
-</nav>
+    <nav class="navbar w-max-[1600px] px-[80px] py-[16px] bg-white shadow-sm">
+      <div class="flex-1 flex items-center gap-2 hover:cursor-pointer">
+        <a href="#">
+          <img class="h-[36px]" src="assets/github-logo.png" alt="" />
+        </a>
+        <a href="#" class="font-bold text-2xl">GitHub Issues Tracker</a>
+      </div>
+      <div class="flex gap-2">
+        <label class="input">
+          <svg
+            class="h-[1em] opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Search issues..." />
+        </label>
+        <button class="btn btn-primary">
+          <i class="ri-add-line"></i>New Issue
+        </button>
+      </div>
+    </nav>
 
-<script src="main.js"></script>
+    <div class="content px-[14%]">
 
-</body>
+      <!-- Tabs -->
+
+    <div class="bg-white flex gap-3 py-6 px-6 mt-[60px]">
+      <button
+        id="tab-all"
+        onclick="changeTab('all')"
+        class="tab-btn btn btn-primary w-[120px]"
+      >
+        All
+      </button>
+
+      <button
+        id="tab-open"
+        onclick="changeTab('open')"
+        class="tab-btn tab-btn btn btn-natural w-[120px]"
+      >
+        Open
+      </button>
+
+      <button
+        id="tab-closed"
+        onclick="changeTab('closed')"
+        class="tab-btn tab-btn btn btn-natural w-[120px]"
+      >
+        Closed
+      </button>
+    </div>
+
+
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
