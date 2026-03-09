@@ -126,6 +126,19 @@ const showIssues = (issues) => {
     });
 }
 
+// function for search 
+const searchIssues = () => {
+    // Get the input
+    const searchText = document.getElementById('search-input').value.toLowerCase();
+    // Filter the issues
+    const filterIssues = allIssues.filter(issue => 
+        issue.title.toLowerCase().includes(searchText) ||
+        issue.description.toLowerCase().includes(searchText)
+    );
+
+    showIssues(filterIssues);
+}
+// Function for loader
 function showLoader(state){
     // Get the loader
     const loader=document.getElementById("loader")
